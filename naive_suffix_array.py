@@ -26,7 +26,7 @@ def search_pattern(x, SA, u):
 
     return j
 
-x = "mississippi"
+x = "banana"
 SA = suffix_array(x)
 print("Suffix array:", SA)
 
@@ -36,8 +36,15 @@ print(search_pattern(x, SA, "x"))   # -> -1
 
 
 
+
+
 ### Questions: ###
 
+# 0. You must explain how to use your code to construct a suffix array, and show its output (the suffix array) for the input banana. 
+
+# To run the code and generate the suffix array for the input "banana", simply execute the script. The function `suffix_array` constructs 
+# the suffix array, and the output is printed to the console.
+# The Suffix array for the input "banana" is: [5, 3, 1, 0, 4, 2]
 
 # 1. What is the worst case running time for constructing a suffix array of a string of length n? 
 
@@ -60,3 +67,9 @@ print(search_pattern(x, SA, "x"))   # -> -1
 # In contrast, a random string is less likely to have long common prefixes among its suffixes, leading to fewer comparisons and faster sorting.
 
 
+# 3 You must comment on how your measurements compare to your expectation of the running time of your method/program on the different types and lengths of strings. 
+
+# Our results show that the all_a_strings run equally fast as the random strings for strings as long as 90.000, after that we see an increase of time for the randoms strings, 
+# for lengths 100.000 and 200.000 which is opposite of what we expected. We expected the all_a_strings to be slower than the random strings, because of the long common prefix 
+# that makes the comparisons take longer time. We could not measure for longer strings because of memory issues. However, we would expect that for longer strings we would find 
+# that the all_a_strings would be slower than the random strings.

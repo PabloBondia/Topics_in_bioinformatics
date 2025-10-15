@@ -76,3 +76,9 @@ def main():
 if __name__ == "__main__":
     main()
 
+# You must comment on how your measurements compare to your expectation of the running time of your method/program on the different types and lengths of strings. 
+
+# Our results show that the all_a_strings run equally fast as the random strings for strings as long as 90.000, after that we see an increase of time for the randoms strings, 
+# for lengths 100.000 and 200.000 which is opposite of what we expected. We expected the all_a_strings to be slower than the random strings, because of the long common prefix 
+# that makes the comparisons take longer time. We could not measure for longer strings because of memory issues. However, we would expect that for longer strings we would find 
+# that the all_a_strings would be slower than the random strings.
