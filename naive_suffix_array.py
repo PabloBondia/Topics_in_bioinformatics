@@ -1,41 +1,39 @@
+
+"""Mandatory Project Part 1/3"""
+
+"""This project implements the naive algorithm for constructing suffix trees and measures its performance across different input strings.
+
+To run the sequential performance measurement: python sequential_measure.py --num_files 5
+
+--num_files specifies how many files to process from each folder (default: 10).
+
+To get the banana suffix array, run the naive_suffix_array.py script.
+
+The script will:
+
+Measure the time required to build suffix arrays for each input file.
+Save results in suffix_array_partial_results.csv.
+Generate and display a plot (suffix_array_times_sequential.png) comparing running times.
+
+Files
+
+sequential_measure.py → main script to run experiments
+measure_utils.py → helper functions for file handling and timing
+naive_suffix_array.py → naive implementation of the suffix array algorithm
+
+Output
+
+A CSV file with partial timing results.
+A plot showing time vs. input size for both “all a’s” and random strings.
+"""
+
 def suffix_array(s):
     """Build a suffix array in O(n log n) using Python's sorting."""
     return sorted(range(len(s)), key=lambda k: s[k:])
 
-def search_pattern(x, SA, u):
-    """
-    Search pattern u in text x using suffix array SA.
-    Returns the index of a match in x, or -1 if not found.
-    """
-    n = len(SA)
-    m = len(u)
-    L, R = 0, n - 1
-    j = -1  # no match yet
-
-    while L <= R and j == -1:
-        M = (L + R) // 2
-        start = SA[M]
-        substring = x[start:start+m]
-
-        if u == substring:
-            j = start   # found
-        elif u > substring:
-            L = M + 1   # search right half
-        else:
-            R = M - 1   # search left half
-
-    return j
-
 x = "banana"
 SA = suffix_array(x)
 print("Suffix array:", SA)
-
-print(search_pattern(x, SA, "ssi"))   # -> 0
-print(search_pattern(x, SA, "ippi"))   # -> 1
-print(search_pattern(x, SA, "x"))   # -> -1
-
-
-
 
 
 ### Questions: ###
@@ -68,6 +66,8 @@ print(search_pattern(x, SA, "x"))   # -> -1
 
 
 # 3 You must comment on how your measurements compare to your expectation of the running time of your method/program on the different types and lengths of strings. 
+
+# Results of testing in Figure suffix_array_times_sequential1.png, obtained after running the sequential_measure.py script on the provided folders with different string types and lengths.
 
 # Our results show that the all_a_strings run equally fast as the random strings for strings as long as 90.000, after that we see an increase of time for the randoms strings, 
 # for lengths 100.000 and 200.000 which is opposite of what we expected. We expected the all_a_strings to be slower than the random strings, because of the long common prefix 

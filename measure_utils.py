@@ -1,5 +1,9 @@
 # measure_utils.py
 
+
+""" Mandatory Project Part 2/3"""
+
+
 import os
 import time
 from naive_suffix_array import suffix_array
